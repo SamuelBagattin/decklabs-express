@@ -79,5 +79,5 @@ jobs:
       run: octo push --package="./decklabs.express.${{ steps.gitversion.outputs.semVer }}.zip" --server="${{ secrets.OCTOPUS_SERVER_URL }}" --apiKey="${{ secrets.OCTOPUS_API_KEY }}"
     - uses: actions/upload-artifact@v2
       with:
-        name: poc.nestjs.${{ steps.gitversion.outputs.semVer }}
+        name: decklabs.express.${{ steps.gitversion.outputs.semVer }}
         path: ./decklabs.express.${{ steps.gitversion.outputs.semVer }}.zip
