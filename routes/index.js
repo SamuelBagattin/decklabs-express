@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const cors = require('cors')({origin: true});
 const scraping = require('../core/dealsscraping')
+const {getConf} = require("../core/configurationProvider");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 
     const data = await scraping.scrapeDeals();
-    res.render('index', data);
+    res.render('index', {deals: data, title: "Decklabs", version: getConf()["releaseVersion"]});
 
   },);
 });
