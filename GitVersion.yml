@@ -10,4 +10,5 @@ branches:
     tag: ""
     increment: Patch
   pull-request:
+    increment: Minor
     tag: beta
