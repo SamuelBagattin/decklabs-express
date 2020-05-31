@@ -1,29 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const cors = require('cors')({origin: true});
-const scraping = require('../core/dealsscraping')
+const {getDeals} = require("../core/cacheProvider");
 const {getConf} = require("../core/configurationProvider");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  cors(req, res, async () => {
-
-
-    const data = await scraping.scrapeDeals();
+    const data = JSON.parse(getDeals());
     res.render('index', {deals: data, title: "Decklabs", version: getConf()["releaseVersion"]});
-
-  },);
 });
 
 router.get('/api', (req, res) => {
-  cors(req, res, async () => {
-
-
-    const data = await scraping.scrapeDeals();
+    const data = getDeals();
     res.send(data);
-
-  },);
 })
 
 module.exports = router;

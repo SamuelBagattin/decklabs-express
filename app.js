@@ -11,6 +11,10 @@ const {getConf} = require("./core/configurationProvider");
     hbs = require('hbs')
     app = express();
 
+    dealsCronJob = require('./core/dealsCron');
+
+dealsCronJob.startDealsCron();
+
 hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 
 // view engine setup
