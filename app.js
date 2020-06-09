@@ -11,6 +11,10 @@ const {getConf} = require("./core/configurationProvider");
     hbs = require('hbs')
     app = express();
 
+    dealsCronJob = require('./core/dealsCron');
+
+dealsCronJob.startDealsCron();
+
 hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 
 // view engine setup
@@ -48,5 +52,4 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {title: "Error", version: getConf()["releaseVersion"]});
 });
-
 module.exports = app;
