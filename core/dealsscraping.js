@@ -12,7 +12,8 @@ function getDeals($) {
                     temperature: el.find('.cept-vote-temp.vote-temp').text().trim(),
                     shipping: el.find('.cept-shipping-price>.hide--toW3').text().trim() || el.find('.cept-shipping-price').text().trim(),
                     retailer: el.find('.cept-merchant-name').text().trim(),
-                    imageUrl: el.find('.threadGrid-image img').attr('src') || JSON.parse(el.find('.threadGrid-image img').attr('data-lazy-img') || '{}')["src"]
+                    imageUrl: el.find('.threadGrid-image img').attr('src') || JSON.parse(el.find('.threadGrid-image img').attr('data-lazy-img') || '{}')["src"],
+                    url: el.find('.cept-thread-image-link').attr('href')
                 }
             }
         )

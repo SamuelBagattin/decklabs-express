@@ -1,82 +1,86 @@
-<div class="container-fluid">
+<div class="container-fluid" id="deals">
     {{#with deals}}
-    <div class="row">
+        <div class="row">
 
-        <!-- DEALS A LA UNE -->
-        <div class="col-sm-3">
-            <h3 class="text-center">Deals à la une</h3>
-            {{#each a_la_une}}
-            <div class="card text-white bg-secondary sm-3 box-shadow">
-                <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
-                    style="height: 225px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <!--  <p class="card-text">{{this.description}}</p> -->
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+            <!-- DEALS A LA UNE -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Deals à la une</h3>
+                {{#each a_la_une}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover; cursor: pointer"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
             </div>
-                <div style="height: 1rem"></div>
-            {{/each}}
-        </div>
 
-        <!-- DERNIERS DEALS HOT -->
-        <div class="col-sm-3">
-            <h3 class="text-center">Derniers deals hot</h3>
-            {{#each hot}}
-            <div class="card text-white bg-secondary sm-3 box-shadow">
-                <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
-                    style="height: 225px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <!--  <p class="card-text">{{this.description}}</p> -->
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+            <!-- DERNIERS DEALS HOT -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Derniers deals hot</h3>
+                {{#each hot}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover;"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
             </div>
-                <div style="height: 1rem"></div>
-            {{/each}}
-        </div>
 
-        <!-- DERNIERS DEALS -->
-        <div class="col-sm-3">
-            <h3 class="text-center">Derniers deals</h3>
-            {{#each new}}
-            <div class="card text-white bg-secondary sm-3 box-shadow">
-                <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
-                    style="height: 225px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <!--  <p class="card-text">{{this.description}}</p> -->
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+            <!-- DERNIERS DEALS -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Derniers deals</h3>
+                {{#each new}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover;"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
             </div>
-                <div style="height: 1rem"></div>
-            {{/each}}
-        </div>
 
-        <!-- DEALS COMMENTES -->
-        <div class="col-sm-3">
-            <h3 class="text-center">Deals commentés</h3>
-            {{#each comment}}
-            <div class="card text-white bg-secondary sm-3 box-shadow">
-                <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
-                    style="height: 225px; width: 100%; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <!--  <p class="card-text">{{this.description}}</p> -->
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+            <!-- DEALS COMMENTES -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Deals commentés</h3>
+                {{#each comment}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover;"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
             </div>
-                <div style="height: 1rem"></div>
-            {{/each}}
         </div>
-    </div>
     {{/with}}
 </div>

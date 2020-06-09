@@ -1,17 +1,9 @@
-const fs = require('fs');
-const dataDir = './data';
-const dataFile = dataDir + '/deals.json'
+let deals;
 
-exports.setupDirectory = () => {
-    if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir);
-    }
-}
-
-exports.writeDeals = (dealsAsJsonString) => {
-    fs.writeFileSync(dataFile, dealsAsJsonString);
+exports.writeDeals = (dealsObject) => {
+    deals = dealsObject
 }
 
 exports.getDeals = () => {
-    return fs.readFileSync(dataFile).toString()
+    return deals;
 }
