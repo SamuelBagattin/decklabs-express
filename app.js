@@ -15,8 +15,6 @@ const {getConf} = require("./core/configurationProvider");
 
 dealsCronJob.startDealsCron();
 
-hbs.registerPartials(__dirname + '/views/partials', function (err) {});
-
 // view engine setup
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
