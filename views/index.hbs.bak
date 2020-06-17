@@ -1,0 +1,119 @@
+<header>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand text-light"><i class="fa fa-tree" aria-hidden="true"></i> DECKLABS</a>
+        <form class="form-inline">
+            <label>
+                <input class="form-control mr-sm-2" type="search" placeholder="CeKeTuVeu">
+            </label>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
+    </nav>
+</header>
+<div class="container-fluid" id="deals">
+    {{#with deals}}
+        <div class="row">
+
+            <!-- DEALS A LA UNE -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Deals à la une</h3>
+                {{#each a_la_une}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover; cursor: pointer"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
+            </div>
+
+            <!-- DERNIERS DEALS HOT -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Derniers deals hot</h3>
+                {{#each hot}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover;"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
+            </div>
+
+            <!-- DERNIERS DEALS -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Derniers deals</h3>
+                {{#each new}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover;"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
+            </div>
+
+            <!-- DEALS COMMENTES -->
+            <div class="col-sm-3">
+                <h3 class="text-center">Deals commentés</h3>
+                {{#each comment}}
+                    <div class="card text-white bg-secondary sm-3 box-shadow">
+                        <img class="card-img-top" alt="Thumbnail" src="{{this.imageUrl}}"
+                             style="height: 225px; width: 100%; object-fit: cover;"
+                             v-on:click="openlink('{{this.url}}')">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <!--  <p class="card-text">{{this.description}}</p> -->
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-sm">{{this.price}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 1rem"></div>
+                {{/each}}
+            </div>
+        </div>
+    {{/with}}
+</div>
+
+<footer class="fixed-bottom bg-light">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <span class="text-muted">Version {{version}} - By <a class="tet-dark"
+                                                                 href="https://github.com/SamuelBagattin">Samuel
+                    Bagattin</a></span>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#deals',
+        methods: {
+            openlink: function (link) {
+                window.open(link, "_blank");
+            }
+        },
+    })
+
+</script>
