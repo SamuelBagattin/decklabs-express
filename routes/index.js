@@ -7,7 +7,7 @@ const {getConf} = require("../core/configurationProvider");
 /* GET home page. */
 router.get('/', function(req, res, next) {
     const data = getDeals();
-    res.render('index', {deals: data, title: "Decklabs", version: getConf()["releaseVersion"], production: app.get('env') === 'production', scriptName: 'index'});
+    res.render('index', {deals: data, title: "Decklabs", version: getConf()["releaseVersion"], production: getConf()["env"] === "prod"});
 });
 
 router.get('/api', (req, res) => {

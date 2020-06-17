@@ -9,11 +9,16 @@ const {getConf} = require("./core/configurationProvider");
 
     express = require('express')
     hbs = require('hbs')
+    compression = require('compression')
     app = express();
 
     dealsCronJob = require('./core/dealsCron');
 
 dealsCronJob.startDealsCron();
+app.use(compression())
+hbs.registerHelper('islazyloaded', function (value) {
+    return value > 3;
+});
 
 // view engine setup
 app.set('view engine', 'hbs');

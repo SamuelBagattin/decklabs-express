@@ -1,3 +1,4 @@
 {
-  "releaseVersion": "local"
+  "releaseVersion": "local",
+  "env": "dev"
 }
