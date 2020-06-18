@@ -9,16 +9,31 @@ function getDeals($) {
                 return {
                     title: el.find('.thread-title>a').text().trim(),
                     price: el.find('.thread-price').text(),
+                    usualPrice: el.find('.threadGrid-title>.overflow--fade .mute--text.text--lineThrough').text().trim(),
+                    discount: el.find('.threadGrid-title>.overflow--fade .space--ml-1.size--all-l.size--fromW3-xl').text().trim(),
+                    description: (() => {
+                        let descriptionEl = el.find('.threadGrid-body>.userHtml.userHtml-content>.cept-description-container');
+                        descriptionEl.find('a').remove();
+                        return descriptionEl.text().trim()
+                    })(),
                     temperature: el.find('.cept-vote-temp.vote-temp').text().trim(),
                     shipping: el.find('.cept-shipping-price>.hide--toW3').text().trim() || el.find('.cept-shipping-price').text().trim(),
                     retailer: el.find('.cept-merchant-name').text().trim(),
                     imageUrl: el.find('.threadGrid-image img').attr('src') || JSON.parse(el.find('.threadGrid-image img').attr('data-lazy-img') || '{}')["src"],
-                    url: el.find('.cept-thread-image-link').attr('href')
+                    url: el.find('.cept-thread-image-link').attr('href'),
+                    reporter: el.find('.thread-username').text().trim(),
+                    reporterImageUrl: el.find('.thread-avatar').attr('src').trim(),
+                    comments: Number(el.find('.cept-comment-link>span').text().trim()),
+                    updateDate: el.find('.icon--activity').siblings('.hide--fromW3').text().trim(),
+                    location: el.find('.icon--location').siblings('.hide--fromW3').text().trim(),
+                    shippingCountry: el.find('.icon--world').siblings('.hide--fromW3').text().trim(),
+                    expirationDate: el.find('.icon--hourglass').siblings('.hide--fromW3').text().trim(),
                 }
             }
         )
 
 }
+
 const scrapeDeals = async () => {
 
     const base_url = "https://www.dealabs.com/";
