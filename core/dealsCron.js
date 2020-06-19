@@ -3,7 +3,7 @@ const {writeDeals} = require("./cacheProvider");
 const CronJob = require('cron').CronJob;
 
 const job =  new CronJob('*/3 * * * * *', function() {
-    scrapeDeals().then((data) =>{
+    scrapeDeals(1).then((data) =>{
         writeDeals(data)
     })
 }, null, true, 'Europe/Paris', true);
