@@ -1,23 +1,34 @@
 const createError = require('http-errors');
-const {getConf} = require("./core/configurationProvider");
-    path = require('path');
-    cookieParser = require('cookie-parser');
-    logger = require('morgan');
-    sassMiddleware = require('node-sass-middleware');
+const {
+    getConf
+} = require("./core/configurationProvider");
+path = require('path');
+cookieParser = require('cookie-parser');
+logger = require('morgan');
+sassMiddleware = require('node-sass-middleware');
 
-    indexRouter = require('./routes/index');
+indexRouter = require('./routes/index');
 
-    express = require('express')
-    hbs = require('hbs')
-    compression = require('compression')
-    app = express();
+express = require('express')
+hbs = require('hbs')
+compression = require('compression')
+app = express();
 
-    dealsCronJob = require('./core/dealsCron');
+dealsCronJob = require('./core/dealsCron');
 
 dealsCronJob.startDealsCron();
 app.use(compression())
 hbs.registerHelper('islazyloaded', function (value) {
     return value > 3;
+});
+
+hbs.registerHelper('isHot', function (value) {
+    var res = value.slice(0, value.length - 1);
+    return Number(res) > 0;
+});
+
+hbs.registerHelper('isNew', function (value) {
+    return value == "Nouveau";
 });
 
 // view engine setup
@@ -53,6 +64,9 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error', {title: "Error", version: getConf()["releaseVersion"]});
+    res.render('error', {
+        title: "Error",
+        version: getConf()["releaseVersion"]
+    });
 });
 module.exports = app;
