@@ -1,5 +1,5 @@
 const cheerio = require('cheerio');
-
+const c = require('./constants')
 const fetch = require('node-fetch')
 
 function getDeals($) {
@@ -34,12 +34,8 @@ function getDeals($) {
 
 }
 
-const scrapeDeals = async () => {
+const scrapeDeals = async (pagenumber) => {
 
-    const base_url = "https://www.dealabs.com/";
-    const hot_url = "https://www.dealabs.com/hot"
-    const new_url = "https://www.dealabs.com/nouveaux";
-    const comment_url = "https://www.dealabs.com/commentes";
 
 
     const executeDealRequest = async (url) => {
@@ -52,10 +48,10 @@ const scrapeDeals = async () => {
 
 
     const deals = await Promise.all([
-        executeDealRequest(base_url),
-        executeDealRequest(hot_url),
-        executeDealRequest(new_url),
-        executeDealRequest(comment_url),
+        executeDealRequest(c.constants.base_url + "?page=" + pagenumber),
+        executeDealRequest(c.constants.hot_url + "?page=" + pagenumber),
+        executeDealRequest(c.constants.new_url + "?page=" + pagenumber),
+        executeDealRequest(c.constants.comment_url + "?page=" + pagenumber),
     ]);
 
     return {
