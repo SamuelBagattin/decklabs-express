@@ -1,41 +1,62 @@
+$color-one: #6002EE;
+$color-two: #B388FF;
+$color-tree: #FAFAFA;
+
+/*
 .md-app {
     max-height: 400px;
     border: 1px solid rgba(#000, .12);
 }
-
+*/
 
 .md-layout-item {
     padding: 10px;
 }
 
 .purple-one {
-    background-color: #6002EE !important;
+    background-color: $color-one !important;
 }
 
-.md-content {
-    background-color: #FAFAFA !important;
+.bg-color {
+    background-color: $color-tree !important;
 }
 
+/*
 .md-chip {
     color: white !important;
-    background-color: #B388FF !important;
+    background-color: $color-two !important;
     padding: 0 25px !important;
     height: 50px !important;
     font-size: 16px !important;
     line-height: 50px !important;
     border-radius: 25px !important;
 }
+*/
 
-.md-card-content {
+.custom-btn {
+    padding: 0 25px !important;
+    border-radius: 20px !important;
+    color: white !important;
+    background-color: $color-two !important;
+}
+
+.center-btn {
     display: flex !important;
     margin: 0 auto;
     justify-content: center;
+    padding-left: 40px;
 }
 
-.md-card {
+.round-corner {
     border-radius: 10px !important;
 }
 
+/* Ajustement des images */
+.md-card-media img {
+    padding-top: 10px;
+}
+
+/* Ajustement des images */
 img {
     width: auto !important;
     height: auto !important;
@@ -47,15 +68,56 @@ img {
     margin-top: 10px;
 }
 
+/* Reduction de la taille des emoji dans le titre des colonnes */
 .small-emoji {
-    height: 0.9em !important;
-    width: 0.9em !important;
+    height: 1em;
+    width: 1em;
+}
+
+.cold {
+    font-size: 18px !important;
+    background: -webkit-linear-gradient(60deg, rgba(65, 246, 247, 1) 0%, rgba(52, 172, 255, 1) 100%) !important;
+    // background: -webkit-linear-gradient(60deg, rgba(247,181,65,1) 0%, rgba(255,52,104,1) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.hot {
+    font-size: 18px !important;
+    background: -webkit-linear-gradient(60deg, rgba(247, 181, 65, 1) 0%, rgba(255, 52, 104, 1) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.new {
+    font-size: 18px !important;
+    background: -webkit-linear-gradient(60deg, rgba(133,133,133,1) 0%, rgba(0,0,0,1) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
 
 .text-light {
     color: white !important;
 }
 
-.footer {
+/* Alignement au centre du footer */
+.text-center {
     text-align: center;
+}
+
+.usual-price {
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+.no-pad-bottom {
+    padding-bottom: 0px;
+}
+
+.no-pad-top {
+    padding-top: 0px;
+}
+
+.fix-card {
+    width: 356.25px;
 }
