@@ -57,7 +57,7 @@ resource "aws_apigatewayv2_domain_name" "api_gateway_domain" {
 }
 
 resource "aws_route53_record" "route_53_record_decklabs" {
-  name = var.SUB_DOMAIN_NAME
+  name = var.WEBSITE_SUB_DOMAIN_NAME
   type = "A"
   zone_id = var.HOSTED_ZONE_ID
   alias {
