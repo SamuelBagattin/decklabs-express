@@ -39,8 +39,7 @@ const scrapeDeals = async (pagenumber) => {
 
 
     const executeDealRequest = async (url) => {
-        const res = await fetch(url);
-
+        const res = await fetch(url, {headers: {'User-Agent': null}});
         const html = await res.text();
 
         return getDeals(cheerio.load(html))
