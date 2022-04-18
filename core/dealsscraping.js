@@ -1,6 +1,6 @@
 const cheerio = require('cheerio');
 const c = require('./constants')
-const fetch = require('node-fetch')
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 function getDeals($) {
     return $('article.thread.thread--type-list.thread--deal').toArray()
