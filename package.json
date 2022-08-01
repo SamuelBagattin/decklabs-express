@@ -16,7 +16,7 @@
     "hbs": "latest",
     "http-errors": "latest",
     "morgan": "latest",
-    "node-fetch": "latest",
+    "node-fetch": "3.2.10",
     "node-sass-middleware": "latest"
   }
 }
