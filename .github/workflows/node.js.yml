@@ -35,4 +35,4 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: |
-          ghcr.io/SamuelBagattin/decklabs-express:latest
+          ghcr.io/samuelbagattin/decklabs-express:latest
