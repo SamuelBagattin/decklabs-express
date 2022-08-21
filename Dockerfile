@@ -1,12 +1,13 @@
-FROM node:16 AS build-env
+FROM node:14 AS build-env
 COPY . /app
 WORKDIR /app
-
+RUN npm rebuild node-sass
 RUN yarn --frozen-lockfile
 
-FROM gcr.io/distroless/nodejs:14
+FROM node:14
 COPY --from=build-env /app /app
+RUN npm rebuild node-sass
 WORKDIR /app
-CMD ["./bin/www"]
+ENTRYPOINT ["node","./bin/www"]
 
-EXPOSE 3000
+EXPOSE 3001
